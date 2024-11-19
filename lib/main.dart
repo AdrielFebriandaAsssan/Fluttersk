@@ -6,6 +6,7 @@ import 'package:pjsk/pages/Product3.dart';
 import 'package:pjsk/pages/home.dart';
 import 'package:pjsk/pages/navbar.dart';
 import 'package:pjsk/pages/product.dart';
+import 'package:pjsk/pages/user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         "/Kartu":(context) => Product(),
         "/Spring":(context) => Product2(),
         "/Figure":(context) => Product3(),
-        "/List":(context) => ProductList()
+        "/List":(context) => ProductList(),
+        "/User":(context) => UserPage()
       },
     );
   }

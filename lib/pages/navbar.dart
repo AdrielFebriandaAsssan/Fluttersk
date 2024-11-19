@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pjsk/pages/home.dart';
 import 'package:pjsk/pages/product.dart';
 import 'package:pjsk/pages/profile.dart';
+import 'package:pjsk/pages/user.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({super.key});
@@ -14,8 +15,9 @@ class Navbar extends StatefulWidget {
 
 class _NavbarState extends State<Navbar> {
   int _selectedIndex = 0;
-  void _navigationbar(int index){
-    setState((){
+
+  void _navigationbar(int index) {
+    setState(() {
       _selectedIndex = index;
     });
   }
@@ -24,21 +26,39 @@ class _NavbarState extends State<Navbar> {
     HomePage(),
     ProductList(),
     Profile(),
-  
+    UserPage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:_pages[_selectedIndex],
-      bottomNavigationBar:  BottomNavigationBar(currentIndex: _selectedIndex,
-      onTap: _navigationbar,
-      items: [
-      BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-      BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Setting"),
-      BottomNavigationBarItem(icon: Icon(Icons.person_2_rounded), label: "Profile")
-      ],),
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: _navigationbar,
+        type: BottomNavigationBarType.fixed, 
+        selectedItemColor: Colors.green, 
+        unselectedItemColor: Colors.green[200], 
+        backgroundColor: Colors.green[50], 
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: "Setting",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dangerous),
+            label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "User",
+          ),
+        ],
+      ),
     );
-    
   }
 }
